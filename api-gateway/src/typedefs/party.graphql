@@ -1,0 +1,10 @@
+type Party {
+    id: ID!
+    firstName: String
+    lastName: String
+}
+
+type Query {
+    parties: [Party!]!
+    party(id: ID!): Party!
+}

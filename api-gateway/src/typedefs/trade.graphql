@@ -1,0 +1,42 @@
+type Trade {
+    id: ID!
+    date: String
+    commodity: Commodity!
+    side: TradeSide!
+    quantity: Float!
+    price: Float!
+    counterParty: Party!
+    location: Location!
+    status: TradeStatus!
+}
+
+type Query {
+    trades(side: TradeSide, status: TradeStatus): [Trade]!
+    trade(id: ID!): Trade
+}
+
+type Mutation {
+    createTrade(trade: TradeInput!): Trade!
+    updateTrade(id: ID!, trade: TradeInput!): Trade!,
+    deleteTrade(id: ID!): Boolean
+}
+
+input TradeInput {
+    date: String!
+    commodityId: ID!
+    tradeSideId: TradeSide!
+    quantity: Float!
+    price: Float!
+    counterPartyId: ID!
+    locationId: ID!
+    tradeStatusId: TradeStatus!
+}
+
+type Subscription {
+    tradeMutated: TradeMutatedPayload!
+}
+
+type TradeMutatedPayload {
+    mutation: MutationType!
+    node: Trade!
+}

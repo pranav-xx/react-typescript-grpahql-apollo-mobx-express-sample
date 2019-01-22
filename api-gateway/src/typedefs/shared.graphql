@@ -1,0 +1,15 @@
+enum MutationType {
+    CREATED
+    UPDATED
+    DELETED
+}
+
+enum TradeStatus {
+    OPEN
+    NOMINATED
+}
+
+enum TradeSide {
+    BUY
+    SELL
+}

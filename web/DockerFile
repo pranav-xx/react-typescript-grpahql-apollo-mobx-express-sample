@@ -1,0 +1,10 @@
+FROM node:alpine
+ARG dir=/Users/prakaush/Desktop/workspace/personal/metallica/web
+RUN apk add --update bash && rm -rf /var/cache/apk/*
+RUN mkdir -p ${dir}
+WORKDIR ${dir}
+COPY package.json package.json
+RUN npm install
+COPY . ${dir}
+EXPOSE 3003
+CMD ["npm", "start"]

@@ -1,0 +1,10 @@
+type Commodity {
+    id: ID!
+    name: String!
+    unit: String!
+}
+
+type Query {
+    commodities: [Commodity!]!
+    commodity(id: ID!): Commodity!
+}

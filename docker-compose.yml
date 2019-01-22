@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  trade-service:
+    build:
+      context: ./trade-service
+      dockerfile: DockerFile
+    ports:
+      - "3003:3003"
+  refdata-service:
+    build:
+      context: ./refdata-service
+      dockerfile: DockerFile
+    ports:
+      - "3001:3001"
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: DockerFile
+    ports:
+      - "3002:3002"
+  web:
+    build:
+      context: ./web
+      dockerfile: DockerFile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client

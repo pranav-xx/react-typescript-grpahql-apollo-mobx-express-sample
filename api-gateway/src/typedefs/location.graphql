@@ -1,0 +1,9 @@
+type Location {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    locations: [Location!]!
+    location(id: ID!): Location!
+}
